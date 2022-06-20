@@ -1,0 +1,10 @@
+/*
+  Localizable.strings
+  HackerNewsComments
+
+  Created by Benjamin Lewis on 20/6/2022.
+
+*/
+
+"search-bar.prompt" = "Search";
+"search-bar.cancel" = "Cancel";
