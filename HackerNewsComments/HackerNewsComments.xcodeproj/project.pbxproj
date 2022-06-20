@@ -15,7 +15,11 @@
 		B5474F4A2860AD740029F031 /* HackerNewsCommentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F492860AD740029F031 /* HackerNewsCommentsUITests.swift */; };
 		B5474F4C2860AD740029F031 /* HackerNewsCommentsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F4B2860AD740029F031 /* HackerNewsCommentsUITestsLaunchTests.swift */; };
 		B5474F5B2860AFB10029F031 /* NavigationTitlelessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F5A2860AFB10029F031 /* NavigationTitlelessView.swift */; };
+		B5474F5D2860B52B0029F031 /* ArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F5C2860B52B0029F031 /* ArticlesView.swift */; };
+		B5474F5F2860B5360029F031 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F5E2860B5360029F031 /* CommentsView.swift */; };
 		B5474F612860B6F20029F031 /* NavigationCustomTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F602860B6F20029F031 /* NavigationCustomTitleView.swift */; };
+		B5474F642860BD190029F031 /* UINavigationController+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F632860BD190029F031 /* UINavigationController+UIGestureRecognizerDelegate.swift */; };
+		B5474F662860BE0E0029F031 /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F652860BE0E0029F031 /* NavigationBackButton.swift */; };
 		B5474F682860BFC40029F031 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F672860BFC40029F031 /* SearchBarView.swift */; };
 		B5474F6A2860C5110029F031 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5474F692860C5110029F031 /* Localizable.strings */; };
 		B5474F6C2860C5700029F031 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F6B2860C5700029F031 /* UIApplication+EndEditing.swift */; };
@@ -50,7 +54,11 @@
 		B5474F492860AD740029F031 /* HackerNewsCommentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsCommentsUITests.swift; sourceTree = "<group>"; };
 		B5474F4B2860AD740029F031 /* HackerNewsCommentsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsCommentsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B5474F5A2860AFB10029F031 /* NavigationTitlelessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitlelessView.swift; sourceTree = "<group>"; };
+		B5474F5C2860B52B0029F031 /* ArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesView.swift; sourceTree = "<group>"; };
+		B5474F5E2860B5360029F031 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		B5474F602860B6F20029F031 /* NavigationCustomTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCustomTitleView.swift; sourceTree = "<group>"; };
+		B5474F632860BD190029F031 /* UINavigationController+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
+		B5474F652860BE0E0029F031 /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
 		B5474F672860BFC40029F031 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		B5474F692860C5110029F031 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B5474F6B2860C5700029F031 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
@@ -144,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				B5474F592860AF730029F031 /* Layout */,
+				B5474F5C2860B52B0029F031 /* ArticlesView.swift */,
+				B5474F5E2860B5360029F031 /* CommentsView.swift */,
 				B5474F672860BFC40029F031 /* SearchBarView.swift */,
 			);
 			path = Views;
@@ -154,6 +164,7 @@
 			children = (
 				B5474F602860B6F20029F031 /* NavigationCustomTitleView.swift */,
 				B5474F5A2860AFB10029F031 /* NavigationTitlelessView.swift */,
+				B5474F652860BE0E0029F031 /* NavigationBackButton.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -162,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				B5474F6B2860C5700029F031 /* UIApplication+EndEditing.swift */,
+				B5474F632860BD190029F031 /* UINavigationController+UIGestureRecognizerDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -301,8 +313,12 @@
 				B5474F6C2860C5700029F031 /* UIApplication+EndEditing.swift in Sources */,
 				B5474F682860BFC40029F031 /* SearchBarView.swift in Sources */,
 				B5474F5B2860AFB10029F031 /* NavigationTitlelessView.swift in Sources */,
+				B5474F662860BE0E0029F031 /* NavigationBackButton.swift in Sources */,
 				B5474F612860B6F20029F031 /* NavigationCustomTitleView.swift in Sources */,
+				B5474F5F2860B5360029F031 /* CommentsView.swift in Sources */,
 				B5474F2F2860AD720029F031 /* HackerNewsCommentsApp.swift in Sources */,
+				B5474F642860BD190029F031 /* UINavigationController+UIGestureRecognizerDelegate.swift in Sources */,
+				B5474F5D2860B52B0029F031 /* ArticlesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
