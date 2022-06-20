@@ -15,6 +15,7 @@
 		B5474F4A2860AD740029F031 /* HackerNewsCommentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F492860AD740029F031 /* HackerNewsCommentsUITests.swift */; };
 		B5474F4C2860AD740029F031 /* HackerNewsCommentsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F4B2860AD740029F031 /* HackerNewsCommentsUITestsLaunchTests.swift */; };
 		B5474F5B2860AFB10029F031 /* NavigationTitlelessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F5A2860AFB10029F031 /* NavigationTitlelessView.swift */; };
+		B5474F612860B6F20029F031 /* NavigationCustomTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F602860B6F20029F031 /* NavigationCustomTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		B5474F492860AD740029F031 /* HackerNewsCommentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsCommentsUITests.swift; sourceTree = "<group>"; };
 		B5474F4B2860AD740029F031 /* HackerNewsCommentsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsCommentsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B5474F5A2860AFB10029F031 /* NavigationTitlelessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitlelessView.swift; sourceTree = "<group>"; };
+		B5474F602860B6F20029F031 /* NavigationCustomTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCustomTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		B5474F592860AF730029F031 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				B5474F602860B6F20029F031 /* NavigationCustomTitleView.swift */,
 				B5474F5A2860AFB10029F031 /* NavigationTitlelessView.swift */,
 			);
 			path = Layout;
@@ -278,6 +281,7 @@
 			files = (
 				B5474F312860AD720029F031 /* ContentView.swift in Sources */,
 				B5474F5B2860AFB10029F031 /* NavigationTitlelessView.swift in Sources */,
+				B5474F612860B6F20029F031 /* NavigationCustomTitleView.swift in Sources */,
 				B5474F2F2860AD720029F031 /* HackerNewsCommentsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
