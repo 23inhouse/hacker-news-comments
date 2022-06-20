@@ -23,6 +23,7 @@
 		B5474F682860BFC40029F031 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F672860BFC40029F031 /* SearchBarView.swift */; };
 		B5474F6A2860C5110029F031 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5474F692860C5110029F031 /* Localizable.strings */; };
 		B5474F6C2860C5700029F031 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F6B2860C5700029F031 /* UIApplication+EndEditing.swift */; };
+		B5474F6F2860CB1D0029F031 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B5474F6E2860CB1D0029F031 /* FirebaseDatabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5474F6F2860CB1D0029F031 /* FirebaseDatabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +196,9 @@
 			dependencies = (
 			);
 			name = HackerNewsComments;
+			packageProductDependencies = (
+				B5474F6E2860CB1D0029F031 /* FirebaseDatabase */,
+			);
 			productName = HackerNewsComments;
 			productReference = B5474F2B2860AD720029F031 /* HackerNewsComments.app */;
 			productType = "com.apple.product-type.application";
@@ -266,6 +271,9 @@
 				Base,
 			);
 			mainGroup = B5474F222860AD720029F031;
+			packageReferences = (
+				B5474F6D2860CB1D0029F031 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = B5474F2C2860AD720029F031 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -647,6 +655,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B5474F6D2860CB1D0029F031 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B5474F6E2860CB1D0029F031 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5474F6D2860CB1D0029F031 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5474F232860AD720029F031 /* Project object */;
 }
