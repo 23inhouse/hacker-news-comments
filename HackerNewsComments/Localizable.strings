@@ -8,3 +8,6 @@
 
 "search-bar.prompt" = "Search";
 "search-bar.cancel" = "Cancel";
+
+"1 item-comment" = "1 comment";
+"%lld item-comments" = "%lld comments";
