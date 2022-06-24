@@ -27,9 +27,8 @@ class FirebaseAPI: Firebasable {
     func call() {
         queryable.topStoryQuery { snap in
             guard let ids = snap?.value as? [Int] else { return }
-            print("ids: \(ids)")
 
-            self.requestable.setData([HackerNewsItem](repeating: HackerNewsItem.Empty, count: ids.count))
+            self.requestable.setData((0..<ids.count).map { _ in HackerNewsItem.Empty })
 
             for id in ids {
                 self.queryable.itemQuery(id) { snap in

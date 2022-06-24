@@ -9,9 +9,11 @@
 import XCTest
 @testable import HackerNewsComments
 
+
 struct MockTogglable: Togglable {
     var flattenedComments: [HackerNewsComment]
     var toggledComments: [HackerNewsComment]
+    func toggle(comment: HackerNewsComment) {}
 
     struct MockFlattenable: Flattenable {
         var comments: [HackerNewsComment]

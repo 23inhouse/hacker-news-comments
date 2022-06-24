@@ -32,7 +32,7 @@ class HackerNewsCommentBridgeTests: XCTestCase {
             let hackerNewsComment = HackerNewsCommentBridge.call(from: hackerNewsFirebaseComment, parentIdentifier: parentIdentifier, nestedLevel: nestedLevel)
             XCTAssertEqual(hackerNewsComment.identifier, 2, "Wrong identifier")
             XCTAssertEqual(hackerNewsComment.username, "author", "Wrong username")
-            XCTAssertEqual(hackerNewsComment.body.string, "text", "Wrong body")
+            XCTAssertEqual(hackerNewsComment.body.string, "<p>text</p>", "Wrong body")
             XCTAssertNil(hackerNewsComment.comments, "Wrong comments")
             XCTAssertEqual(hackerNewsComment.parentIdentifier, expectedParentIdentifier, "Wrong parent Identifier")
             XCTAssertEqual(hackerNewsComment.nestedLevel, expectedNestedLevel, "Wrong nested level")

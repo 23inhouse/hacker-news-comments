@@ -10,8 +10,7 @@ import Foundation
 
 struct HackerNewsComment {
     static var identiferFactory = 0
-
-    static let Empty = HackerNewsComment(body: " ", username: " ", timestamp: nil)
+    static var Empty: HackerNewsComment { HackerNewsComment(body: "No body available for comments that are empty. This is a placeholder body. It is intentionally not blank.", username: "No username", timestamp: Date()) }
 
     let identifier: Int
     let body: NSAttributedString
@@ -24,7 +23,7 @@ struct HackerNewsComment {
     var isHidden: Bool = false
 
     static func getUniqueIdentifier() -> Int {
-        identiferFactory += 1
+        identiferFactory -= 1
         return identiferFactory
     }
 
@@ -69,6 +68,8 @@ struct HackerNewsComment {
         self.nestedLevel = other.nestedLevel
         self.comments = comments
     }
+
+    var isEmpty: Bool { identifier < 0 }
 }
 
 class HackerNewsFirebaseComment {
@@ -111,8 +112,4 @@ class HackerNewsFirebaseComment {
     }
 }
 
-extension HackerNewsComment: Datable {
-}
-
-extension HackerNewsFirebaseComment: Datable {
-}
+extension HackerNewsFirebaseComment: Datable {}

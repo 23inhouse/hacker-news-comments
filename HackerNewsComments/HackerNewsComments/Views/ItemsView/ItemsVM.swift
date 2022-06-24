@@ -9,7 +9,7 @@
 import SwiftUI
 
 class ItemsVM: ObservableObject {
-    @Published var newsItems = [HackerNewsItem](repeating: HackerNewsItem.Empty, count: 6)
+    @Published var newsItems = (0..<6).map { _ in HackerNewsItem.Empty }
     @Published var filteredNewsItems = [HackerNewsItem]()
 
     var newsItemFilter: String = "" {
@@ -24,7 +24,7 @@ class ItemsVM: ObservableObject {
     func requestData() {
         DispatchQueue.main.async {
             self.firebaseRequest.call()
-            self.filteredNewsItems = self.newsItems
+//            self.filteredNewsItems = self.newsItems
         }
     }
 }
@@ -41,5 +41,4 @@ extension ItemsVM: Requestable {
     }
 }
 
-extension ItemsVM: Filterable {
-}
+extension ItemsVM: Filterable {}

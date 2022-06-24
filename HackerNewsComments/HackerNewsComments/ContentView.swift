@@ -19,10 +19,9 @@ struct ContentView: View {
             .padding(7)
         } content: {
             ScrollView {
-                ArticlesView(items: itemsVM.newsItems)
+                ItemsView(vm: itemsVM)
             }
         }
-        .foregroundColor(.primary)
         .onAppear(perform: requestData)
     }
 

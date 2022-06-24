@@ -10,7 +10,8 @@ import Foundation
 import SwiftUI
 
 struct HackerNewsItem {
-    static let Empty = HackerNewsItem(title: "", commentCount: 0)
+    static var identiferFactory = 0
+    static var Empty: HackerNewsItem { HackerNewsItem(title: "No title available for items that are empty. This is a placeholder title. It is intentionally not blank.", commentCount: 0) }
 
     let id: Int
     let url: String
@@ -19,6 +20,11 @@ struct HackerNewsItem {
     let score: Int
     let kids: [Int]?
     let commentCount: Int
+
+    static func getUniqueIdentifier() -> Int {
+        identiferFactory -= 1
+        return identiferFactory
+    }
 
     init?(data: Snapshottable?) {
         guard
@@ -41,7 +47,7 @@ struct HackerNewsItem {
     }
 
     init(title: String, commentCount: Int) {
-        self.id = 0
+        self.id = HackerNewsItem.getUniqueIdentifier()
         self.url = "url"
         self.title = title
         self.author = "author"
@@ -50,18 +56,9 @@ struct HackerNewsItem {
         self.commentCount = commentCount
     }
 
-    var numberOfComments: Int { commentCount }
-    var host: String { url.host ?? "No Url" }
+    var isEmpty: Bool { id < 0 }
 }
 
-extension HackerNewsItem: Datable {
-}
+extension HackerNewsItem: Datable {}
 
-extension HackerNewsItem: Identifiable {
-}
-
-extension HackerNewsItem: Hashable {
-  static func == (lhs: HackerNewsItem, rhs: HackerNewsItem) -> Bool {
-    lhs.id == rhs.id
-  }
-}
+extension HackerNewsItem: Identifiable {}

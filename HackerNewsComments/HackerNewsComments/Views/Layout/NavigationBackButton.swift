@@ -14,8 +14,11 @@ struct NavigationBackButton: View {
         Button {
             presentationMode.wrappedValue.dismiss()
         } label: {
-            Image(systemName: "chevron.backward")
-                .padding()
+            HStack {
+                Image(systemName: "chevron.backward")
+                Text("Back")
+            }
+            .padding()
         }
     }
 }

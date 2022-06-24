@@ -12,7 +12,7 @@ struct FirebaseConfig {
     static let Url = "https://hacker-news.firebaseio.com/"
     static let ItemChildRef = "v0/item"
     static let TypeChildRef = "v0/topstories"
-    static let ItemLimit: UInt = 10 // 500
+    static let ItemLimit: UInt = 500
 
     struct Key {
         static let Id = "id"

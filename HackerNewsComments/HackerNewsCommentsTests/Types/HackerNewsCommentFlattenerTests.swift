@@ -14,7 +14,7 @@ struct MockFlattenable: Flattenable {
 }
 
 class HackerNewsCommentFlattenerTests: XCTestCase {
-    let comments: [HackerNewsComment] = [
+    var comments: [HackerNewsComment] { [
         HackerNewsComment(body: "body 1", username: "username", timestamp: Date()) { parentIdentifier, nestedLevel in
             [
                 HackerNewsComment(body: "body 2", username: "username", timestamp: Date(), parentIdentifier: parentIdentifier, nestedLevel: nestedLevel) { parentIdentifier, nestedLevel in
@@ -32,7 +32,7 @@ class HackerNewsCommentFlattenerTests: XCTestCase {
             ]
         },
         HackerNewsComment(body: "body 8", username: "username", timestamp: Date()),
-    ]
+    ] }
 
     func testFlattenedCommentsCount() {
         let flattenable = MockFlattenable(comments: comments)
@@ -43,12 +43,12 @@ class HackerNewsCommentFlattenerTests: XCTestCase {
     func testFlattenedCommentsAssociations() {
         let expectations: [(String, Int?, Int)] = [
             ("body 1", nil, 0),
-            ("body 2", 1, 1),
-            ("body 3", 2, 2),
-            ("body 4", 2, 2),
-            ("body 5", 1, 1),
-            ("body 6", 5, 2),
-            ("body 7", 5, 2),
+            ("body 2", -1, 1),
+            ("body 3", -2, 2),
+            ("body 4", -2, 2),
+            ("body 5", -1, 1),
+            ("body 6", -5, 2),
+            ("body 7", -5, 2),
             ("body 8", nil, 0),
         ]
 

@@ -9,4 +9,5 @@
 import Foundation
 
 protocol Datable {
+    var id: Int { get }
 }
