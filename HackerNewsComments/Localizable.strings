@@ -11,3 +11,21 @@
 
 "1 item-comment" = "1 comment";
 "%lld item-comments" = "%lld comments";
+
+"back-to-the-future" = "Back to the future";
+"just-now" = "Just now";
+
+"1 second-ago" = "1 second ago";
+"%lld seconds-ago" = "%lld seconds ago";
+"1 minute-ago" = "1 minute ago";
+"%lld minutes-ago" = "%lld minutes ago";
+"1 hour-ago" = "1 hour ago";
+"%lld hours-ago" = "%lld hours ago";
+"1 day-ago" = "1 day ago";
+"%lld days-ago" = "%lld days ago";
+"1 week-ago" = "1 week ago";
+"%lld weeks-ago" = "%lld weeks ago";
+"1 month-ago" = "1 month ago";
+"%lld months-ago" = "%lld months ago";
+"1 year-ago" = "1 year ago";
+"%lld years-ago" = "%lld years ago";
