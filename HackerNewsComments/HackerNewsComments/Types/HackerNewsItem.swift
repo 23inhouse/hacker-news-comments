@@ -52,7 +52,7 @@ struct HackerNewsItem {
         self.title = title
         self.author = "author"
         self.score = 0
-        self.kids = [Int]()
+        self.kids = []
         self.commentCount = commentCount
     }
 

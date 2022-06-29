@@ -22,7 +22,7 @@ struct HackerNewsCommentToggler {
         flattenedParentComment.isFolded.toggle()
         flattenedComments[index] = flattenedParentComment
 
-        var parentIdentifiers = [Int]()
+        var parentIdentifiers: [Int] = []
         parentIdentifiers.append(flattenedParentComment.identifier)
 
         for (index, comment) in flattenedComments.enumerated() {

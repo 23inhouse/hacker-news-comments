@@ -54,7 +54,7 @@ class FirebaseAPI: Firebasable {
         guard let ids = ids else { return }
         guard !ids.isEmpty else { return }
 
-        var commentsMap = [Int: HackerNewsFirebaseComment]()
+        var commentsMap: [Int: HackerNewsFirebaseComment] = [:]
 
         for id in ids {
             queryable.itemQuery(id) { snap in

@@ -10,7 +10,7 @@ import SwiftUI
 
 class ItemsVM: ObservableObject {
     @Published var newsItems = (0..<6).map { _ in HackerNewsItem.Empty }
-    @Published var filteredNewsItems = [HackerNewsItem]()
+    @Published var filteredNewsItems: [HackerNewsItem] = []
 
     var newsItemFilter: String = "" {
         willSet {

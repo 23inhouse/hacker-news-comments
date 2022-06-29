@@ -11,7 +11,7 @@ import XCTest
 
 class MockNewsController: Requestable {
     var newsItemCount = 0
-    var commentCounts = [Int: Int]()
+    var commentCounts: [Int: Int] = [:]
 
     func setData(_ data: [Datable]) {
         newsItemCount = data.count
@@ -24,7 +24,7 @@ class MockNewsController: Requestable {
 }
 
 class MockCommentsController: Requestable {
-    var authors = [String]()
+    var authors: [String] = []
     var title = ""
 
     func setData(_ data: [Datable]) {

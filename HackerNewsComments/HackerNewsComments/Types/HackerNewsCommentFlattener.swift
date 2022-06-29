@@ -24,7 +24,7 @@ struct HackerNewsCommentFlattener {
     }
 
     private func recurseComments(comments: [HackerNewsComment]) -> [HackerNewsComment] {
-        var flattenedComments = [HackerNewsComment]()
+        var flattenedComments: [HackerNewsComment] = []
 
         for comment in comments {
             flattenedComments.append(comment)
