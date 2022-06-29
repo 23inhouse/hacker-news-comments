@@ -11,13 +11,13 @@ import Foundation
 struct HackerNewsCommentIndexConverter {
     let togglable: Togglable
 
+    init(_ togglable: Togglable) {
+        self.togglable = togglable
+    }
+
     func convert(from index: Int) -> Int? {
         let flattenedComments = togglable.flattenedComments
         let toggledComment = togglable.toggledComments[index]
         return flattenedComments.firstIndex(where: { comment in comment.identifier == toggledComment.identifier })
-    }
-
-    init(_ togglable: Togglable) {
-        self.togglable = togglable
     }
 }

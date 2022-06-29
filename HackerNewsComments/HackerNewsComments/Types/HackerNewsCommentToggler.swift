@@ -11,6 +11,10 @@ import Foundation
 struct HackerNewsCommentToggler {
     let togglable: Togglable
 
+    init(_ togglable: Togglable) {
+        self.togglable = togglable
+    }
+
     func toggleComments(at index: Int) -> [HackerNewsComment] {
         var flattenedComments = togglable.flattenedComments
 
@@ -42,9 +46,5 @@ struct HackerNewsCommentToggler {
 
     func toggledComments() -> [HackerNewsComment] {
         return togglable.flattenedComments.filter { comment in !comment.isHidden }
-    }
-
-    init(_ togglable: Togglable) {
-        self.togglable = togglable
     }
 }

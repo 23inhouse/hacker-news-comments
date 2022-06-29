@@ -15,6 +15,10 @@ protocol Flattenable {
 struct HackerNewsCommentFlattener {
     let flattenable: Flattenable
 
+    init(_ flattenable: Flattenable) {
+        self.flattenable = flattenable
+    }
+
     func flattenedComments() -> [HackerNewsComment] {
         return recurseComments(comments: flattenable.comments)
     }
@@ -31,9 +35,5 @@ struct HackerNewsCommentFlattener {
             }
         }
         return flattenedComments
-    }
-
-    init(_ flattenable: Flattenable) {
-        self.flattenable = flattenable
     }
 }

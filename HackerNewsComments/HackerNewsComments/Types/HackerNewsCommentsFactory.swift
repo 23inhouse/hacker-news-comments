@@ -11,6 +11,10 @@ import Foundation
 class HackerNewsCommentsFactory {
     var comments: [HackerNewsComment]
 
+    init(comments: [HackerNewsComment]) {
+        self.comments = comments
+    }
+
     func makeComments(_ data: [HackerNewsFirebaseComment]) -> [HackerNewsComment]? {
         guard !data.isEmpty else { return comments }
 
@@ -30,9 +34,5 @@ class HackerNewsCommentsFactory {
         }
         return comments
 
-    }
-
-    init(comments: [HackerNewsComment]) {
-        self.comments = comments
     }
 }

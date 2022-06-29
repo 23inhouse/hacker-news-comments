@@ -16,6 +16,10 @@ protocol Filterable {
 struct HackerNewsFilter {
     let filterable: Filterable
 
+    init(_ filterable: Filterable) {
+        self.filterable = filterable
+    }
+
     func filteredItems() -> [HackerNewsItem] {
         let newsItems = filterable.newsItems
         let newsItemFilter = filterable.newsItemFilter
@@ -30,9 +34,5 @@ struct HackerNewsFilter {
             }
             return true
         }
-    }
-
-    init(_ filterable: Filterable) {
-        self.filterable = filterable
     }
 }
