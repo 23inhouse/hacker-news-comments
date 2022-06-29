@@ -9,12 +9,12 @@
 import SwiftUI
 
 class ItemsVM: ObservableObject {
-    @Published var newsItems = (0..<6).map { _ in HackerNewsItem.Empty }
-    @Published var filteredNewsItems: [HackerNewsItem] = []
+    var newsItems: [HackerNewsItem] = []
+    @Published var filteredNewsItems: [HackerNewsItem] = (0..<6).map { _ in HackerNewsItem.Empty }
 
     var newsItemFilter: String = "" {
-        willSet {
-            print("didSet newsItemFilter")
+        didSet {
+            print("didSet newsItemFilter:", newsItemFilter)
             filteredNewsItems = HackerNewsFilter(self).filteredItems()
         }
     }
@@ -24,7 +24,6 @@ class ItemsVM: ObservableObject {
     func requestData() {
         DispatchQueue.main.async {
             self.firebaseRequest.call()
-//            self.filteredNewsItems = self.newsItems
         }
     }
 }
@@ -32,12 +31,12 @@ class ItemsVM: ObservableObject {
 extension ItemsVM: Requestable {
     func setData(_ data: [Datable]) {
         newsItems = data as! [HackerNewsItem]
-//        filteredNewsItems = HackerNewsFilter(self).filteredItems()
+        filteredNewsItems = HackerNewsFilter(self).filteredItems()
     }
 
     func setData(at index: Int, with data: Datable) {
         newsItems[index] = data as! HackerNewsItem
-//        filteredNewsItems = HackerNewsFilter(self).filteredItems()
+        filteredNewsItems = HackerNewsFilter(self).filteredItems()
     }
 }
 

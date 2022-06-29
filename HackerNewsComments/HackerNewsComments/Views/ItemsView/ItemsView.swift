@@ -11,7 +11,7 @@ import SwiftUI
 struct ItemsView: View {
     @ObservedObject var vm: ItemsVM
 
-    var items: [HackerNewsItem] { vm.newsItems }
+    var items: [HackerNewsItem] { vm.filteredNewsItems }
 
     var body: some View {
         LazyVStack(spacing: 0) {

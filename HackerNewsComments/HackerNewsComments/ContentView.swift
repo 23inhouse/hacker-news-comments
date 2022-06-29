@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationCustomTitleView {
             SearchBarView() { text in
-//                itemsVM.newsItemFilter = text
+                itemsVM.newsItemFilter = text
                 print("onCommit: \(text)")
             }
             .padding(7)

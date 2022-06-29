@@ -30,9 +30,14 @@ struct HackerNewsFilter {
 
         return newsItems.filter { newsItem -> Bool in
             for filter in filters {
-                if !newsItem.title.lowercased().contains(filter) { return false }
+                if !contains(filter, in: newsItem) { return false }
             }
             return true
         }
+    }
+
+    private func contains(_ filter: String.SubSequence, in item: HackerNewsItem) -> Bool {
+        item.title.lowercased().contains(filter) ||
+        item.url.lowercased().contains(filter)
     }
 }

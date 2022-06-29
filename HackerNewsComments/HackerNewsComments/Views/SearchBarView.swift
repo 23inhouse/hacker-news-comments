@@ -22,18 +22,10 @@ struct SearchBarView: View {
 
                 Group {
                     if #available(iOS 15.0, *) {
-                        TextField("search-bar.prompt", text: $searchText) { isEditing in
-                            showCancelButton = isEditing
-                        } onCommit: {
-                            onCommit(searchText)
-                        }
-                        .submitLabel(.search)
+                        textFieldView
+                            .submitLabel(.search)
                     } else {
-                        TextField("search-bar.prompt", text: $searchText) { isEditing in
-                            showCancelButton = isEditing
-                        } onCommit: {
-                            onCommit(searchText)
-                        }
+                        textFieldView
                     }
                 }
                 .foregroundColor(.primary)
@@ -58,6 +50,17 @@ struct SearchBarView: View {
                         .foregroundColor(Color(.systemBlue))
                 }
             }
+        }
+        .onChange(of: searchText) { typedText in
+            onCommit(typedText)
+        }
+    }
+
+    private var textFieldView: some View {
+        TextField("search-bar.prompt", text: $searchText) { isEditing in
+            showCancelButton = isEditing
+        } onCommit: {
+            onCommit(searchText)
         }
     }
 
