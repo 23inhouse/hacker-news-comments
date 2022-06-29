@@ -10,15 +10,15 @@ import SwiftUI
 class CommentsVM: ObservableObject {
     var item: HackerNewsItem
 
-    @Published var comments = (0..<6).map { _ in HackerNewsComment.Empty }
-    var flattedComments: [HackerNewsComment] {
-        HackerNewsCommentFlattener(self).flattenedComments()
-    }
+    @Published var comments: [HackerNewsComment] = []
+    @Published var flattenedComments: [HackerNewsComment] = []
+    @Published var toggledComments: [HackerNewsComment] = []
 
     private lazy var firebaseRequest = FirebaseAPI(self)
 
     init(item: HackerNewsItem) {
         self.item = item
+        self.toggledComments = (0..<item.commentCount).map { _ in HackerNewsComment.Empty }
     }
 
     func requestData() {
@@ -34,11 +34,15 @@ extension CommentsVM: Requestable {
         guard !data.isEmpty else { return }
         guard data[0].parent != item.id else {
             comments = HackerNewsCommentBridge.call(from: data)
+            flattenedComments = HackerNewsCommentFlattener(self).flattenedComments()
+            toggledComments = HackerNewsCommentToggler(self).toggledComments()
             return
         }
 
         if let updatedComments = HackerNewsCommentsFactory(comments: comments).makeComments(data) {
             comments = updatedComments
+            flattenedComments = HackerNewsCommentFlattener(self).flattenedComments()
+            toggledComments = HackerNewsCommentToggler(self).toggledComments()
         }
     }
 
@@ -48,3 +52,13 @@ extension CommentsVM: Requestable {
 }
 
 extension CommentsVM: Flattenable {}
+
+extension CommentsVM: Togglable {
+    func toggle(comment: HackerNewsComment) {
+        guard let index = HackerNewsCommentIndexConverter(self).convert(from: comment.identifier) else { return }
+        flattenedComments = HackerNewsCommentToggler(self).toggleComments(at: index)
+        withAnimation {
+            toggledComments = HackerNewsCommentToggler(self).toggledComments()
+        }
+    }
+}

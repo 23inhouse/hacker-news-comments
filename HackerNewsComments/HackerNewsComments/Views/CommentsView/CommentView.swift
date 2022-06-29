@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CommentView: View {
     let commentVM: CommentVM
+    let toggleAction: () -> Void
 
     var isEmpty: Bool { commentVM.comment.isEmpty }
 
@@ -24,7 +25,10 @@ struct CommentView: View {
                     .foregroundColor(.secondary)
                     .loadingPlaceHolder(isEmpty)
             }
-            if !commentVM.body.string.isEmpty {
+            .contentShape(Rectangle())
+            .onTapGesture(perform: toggleAction)
+
+            if !commentVM.body.string.isEmpty && !commentVM.isFolded {
                 AttributedText(commentVM.body.string)
                     .font(.body)
                     .loadingPlaceHolder(isEmpty)
@@ -38,8 +42,8 @@ struct CommentView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            CommentView(commentVM: CommentVM(comment: .Empty))
-            CommentView(commentVM: CommentVM(comment: comment))
+            CommentView(commentVM: CommentVM(comment: .Empty)) {}
+            CommentView(commentVM: CommentVM(comment: comment)) {}
         }
         .previewLayout(.sizeThatFits)
     }

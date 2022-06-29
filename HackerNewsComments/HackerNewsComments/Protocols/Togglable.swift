@@ -11,4 +11,5 @@ import Foundation
 protocol Togglable {
     var flattenedComments: [HackerNewsComment] { get }
     var toggledComments: [HackerNewsComment] { get }
+    func toggle(comment: HackerNewsComment)
 }

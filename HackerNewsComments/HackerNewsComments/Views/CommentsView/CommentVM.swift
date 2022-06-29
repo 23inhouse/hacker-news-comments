@@ -13,6 +13,8 @@ struct CommentVM {
     var body: NSAttributedString { comment.body }
     var date: LocalizedStringKey { date(since: comment.timestamp ?? Date()) }
     var username: String { comment.username }
+    var isFolded: Bool { comment.isFolded }
+    var isHidden: Bool { comment.isHidden }
 
     private func date(since fromDate: Date) -> LocalizedStringKey {
         guard fromDate < Date() else { return "back-to-the-future" }

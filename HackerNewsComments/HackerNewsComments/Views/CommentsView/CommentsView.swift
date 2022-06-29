@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct CommentsView: View {
-    @StateObject var commentsVM: CommentsVM
+    @ObservedObject var commentsVM: CommentsVM
+
+    var comments: [HackerNewsComment] {
+        commentsVM.toggledComments
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -27,17 +31,21 @@ struct CommentsView: View {
                 LazyVStack(spacing: 0) {
                     ItemView(vm: ItemVM(commentsVM.item))
                         .padding(10)
-                    Divider()
 
-                    ForEach(commentsVM.flattedComments, id: \.identifier) { comment in
+                    ForEach(comments, id: \.identifier) { comment in
                         VStack(spacing: 0) {
-                            CommentView(commentVM: CommentVM(comment: comment))
-                                .padding(10)
                             Divider()
-                                .padding(.leading, 10)
+                            CommentView(commentVM: CommentVM(comment: comment)) {
+                                commentsVM.toggle(comment: comment)
+                            }
+                            .padding(10)
                         }
                         .padding(.leading, CGFloat(comment.nestedLevel * 10))
+                        .background(Color.background)
                     }
+
+                    Divider()
+                        .background(Color.background)
                 }
             }
         }

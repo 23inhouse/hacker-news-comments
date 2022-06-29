@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B544478E286CF4E60026E288 /* Color+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544478D286CF4E60026E288 /* Color+Background.swift */; };
 		B5474F2F2860AD720029F031 /* HackerNewsCommentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F2E2860AD720029F031 /* HackerNewsCommentsApp.swift */; };
 		B5474F312860AD720029F031 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F302860AD720029F031 /* ContentView.swift */; };
 		B5474F332860AD740029F031 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5474F322860AD740029F031 /* Assets.xcassets */; };
@@ -87,6 +88,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B544478D286CF4E60026E288 /* Color+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Background.swift"; sourceTree = "<group>"; };
 		B5474F2B2860AD720029F031 /* HackerNewsComments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewsComments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5474F2E2860AD720029F031 /* HackerNewsCommentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsCommentsApp.swift; sourceTree = "<group>"; };
 		B5474F302860AD720029F031 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 		B5474F622860BCF20029F031 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B544478D286CF4E60026E288 /* Color+Background.swift */,
 				B5C64DB8286B342E004B2727 /* Int+Of.swift */,
 				B55156FB286332CB004FA63B /* String+Host.swift */,
 				B5FE016C2861E2150019423F /* String+html.swift */,
@@ -518,6 +521,7 @@
 				B5FE016D2861E2160019423F /* String+html.swift in Sources */,
 				B55156F9286332B0004FA63B /* ItemsView.swift in Sources */,
 				B5474F312860AD720029F031 /* ContentView.swift in Sources */,
+				B544478E286CF4E60026E288 /* Color+Background.swift in Sources */,
 				B5FE01622861E14C0019423F /* HackerNewsCommentIndexConverter.swift in Sources */,
 				B5474F812860CBF00029F031 /* Queryable.swift in Sources */,
 				B5474F6C2860C5700029F031 /* UIApplication+EndEditing.swift in Sources */,

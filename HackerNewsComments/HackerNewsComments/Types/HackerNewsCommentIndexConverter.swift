@@ -15,9 +15,8 @@ struct HackerNewsCommentIndexConverter {
         self.togglable = togglable
     }
 
-    func convert(from index: Int) -> Int? {
+    func convert(from identifier: Int) -> Int? {
         let flattenedComments = togglable.flattenedComments
-        let toggledComment = togglable.toggledComments[index]
-        return flattenedComments.firstIndex(where: { comment in comment.identifier == toggledComment.identifier })
+        return flattenedComments.firstIndex(where: { comment in comment.identifier == identifier })
     }
 }
