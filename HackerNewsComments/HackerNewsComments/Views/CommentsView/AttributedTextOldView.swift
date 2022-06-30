@@ -1,13 +1,13 @@
 //
-//  AttributedText.swift
+//  AttributedTextOldView.swift
 //  HackerNewsComments
 //
-//  Created by Benjamin Lewis on 27/6/2022.
+//  Created by Benjamin Lewis on 4/7/2022.
 //
 
 import SwiftUI
 
-struct AttributedTextView: View {
+struct AttributedTextOldView: View {
     var text: NSAttributedString
     @State private var height: CGFloat = .zero
     @State private var isShowingNewsItem: Bool = false
@@ -94,7 +94,7 @@ struct AttributedTextView: View {
     }
 }
 
-struct AttributedText_Previews: PreviewProvider {
+struct AttributedTextOldView_Previews: PreviewProvider {
     static let text = HackerNewsCommentFormatter.call(
         """
         <p>The kicker:<p>&quot;the reduction function&quot; it won&#x27;t work
@@ -105,7 +105,7 @@ struct AttributedText_Previews: PreviewProvider {
     )
 
     static var previews: some View {
-        AttributedTextView(text: text)
+        AttributedTextOldView(text: text)
             .frame(maxWidth: 300)
             .previewLayout(.sizeThatFits)
     }

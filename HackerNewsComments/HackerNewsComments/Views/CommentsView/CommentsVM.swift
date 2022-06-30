@@ -16,6 +16,10 @@ class CommentsVM: ObservableObject {
 
     private lazy var firebaseRequest = FirebaseAPI(self)
 
+    private var isNumberOfCommentsCorrect: Bool {
+        item.commentCount == flattenedComments.map(\.body).filter({ !$0.string.isEmpty }).count
+    }
+
     init(item: HackerNewsItem) {
         self.item = item
         self.toggledComments = (0..<item.commentCount).map { _ in HackerNewsComment.Empty }
@@ -26,6 +30,8 @@ class CommentsVM: ObservableObject {
     }
 
     func requestData() {
+        guard flattenedComments.isEmpty || !isNumberOfCommentsCorrect else { return }
+
         DispatchQueue.main.async {
             self.firebaseRequest.call(self.item.id)
         }

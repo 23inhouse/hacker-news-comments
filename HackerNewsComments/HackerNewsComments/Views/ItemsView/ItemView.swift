@@ -17,6 +17,7 @@ struct ItemView: View {
         VStack(alignment: .leading, spacing: 5) {
             Text(item.title)
                 .lineLimit(2)
+                .multilineTextAlignment(.leading)
                 .font(.body)
                 .frame(minHeight: 50)
                 .loadingPlaceHolder(isEmpty)
@@ -47,5 +48,6 @@ struct ArticleView_Previews: PreviewProvider {
             ItemView(vm: ItemVM(itemWithLongTitle))
         }
         .previewLayout(.sizeThatFits)
+        .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
     }
 }

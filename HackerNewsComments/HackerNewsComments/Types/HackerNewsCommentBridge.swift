@@ -11,7 +11,7 @@ import Foundation
 struct HackerNewsCommentBridge {
     static func call(from other: HackerNewsFirebaseComment, parentIdentifier: Int? = nil, nestedLevel: Int? = nil) -> HackerNewsComment {
         return HackerNewsComment(
-            body: HackerNewsCommentFormatter.call(other.text),
+            body: other.text, // HackerNewsCommentFormatter.call(other.text),
             username: other.author,
             timestamp: other.timestamp,
             identifier: other.id,

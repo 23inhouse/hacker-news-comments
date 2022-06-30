@@ -29,9 +29,13 @@ struct CommentView: View {
             .onTapGesture(perform: toggleAction)
 
             if !commentVM.body.string.isEmpty && !commentVM.isFolded {
-                AttributedTextView(text: commentVM.body)
-                    .font(.body)
-                    .loadingPlaceHolder(isEmpty)
+                if #available(iOS 15.0, *) {
+                    AttributedTextView(text: commentVM.body.string)
+                        .font(.body)
+                        .loadingPlaceHolder(isEmpty)
+                } else {
+                    AttributedTextOldView(text: HackerNewsCommentFormatter.call(commentVM.body.string))
+                }
             }
         }
     }
