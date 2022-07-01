@@ -46,8 +46,8 @@ struct HackerNewsItem {
         self.commentCount = commentCount
     }
 
-    init(title: String, commentCount: Int) {
-        self.id = HackerNewsItem.getUniqueIdentifier()
+    init(id: Int? = nil, title: String, commentCount: Int) {
+        self.id = id ?? HackerNewsItem.getUniqueIdentifier()
         self.url = "url"
         self.title = title
         self.author = "author"
