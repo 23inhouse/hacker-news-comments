@@ -21,6 +21,10 @@ class CommentsVM: ObservableObject {
         self.toggledComments = (0..<item.commentCount).map { _ in HackerNewsComment.Empty }
     }
 
+    var urlString: String {
+        item.url
+    }
+
     func requestData() {
         DispatchQueue.main.async {
             self.firebaseRequest.call(self.item.id)

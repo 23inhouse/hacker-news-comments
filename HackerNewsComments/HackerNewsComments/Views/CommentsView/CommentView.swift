@@ -29,7 +29,7 @@ struct CommentView: View {
             .onTapGesture(perform: toggleAction)
 
             if !commentVM.body.string.isEmpty && !commentVM.isFolded {
-                AttributedText(commentVM.body.string)
+                AttributedTextView(text: commentVM.body)
                     .font(.body)
                     .loadingPlaceHolder(isEmpty)
             }

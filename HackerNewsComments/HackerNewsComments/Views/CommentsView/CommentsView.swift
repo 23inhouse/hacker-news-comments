@@ -28,13 +28,14 @@ struct CommentsView: View {
             .frame(maxWidth: .infinity)
             Divider()
             ScrollView {
-                LazyVStack(spacing: 0) {
+                VStack(spacing: 0) {
                     ItemView(vm: ItemVM(commentsVM.item))
                         .padding(10)
 
-                    ForEach(comments, id: \.identifier) { comment in
+                    ForEach(Array(comments.enumerated()), id: \.element.identifier) { index, comment in
                         VStack(spacing: 0) {
                             Divider()
+                                .padding(.leading, index < 1 ? 0 : 10)
                             CommentView(commentVM: CommentVM(comment: comment)) {
                                 commentsVM.toggle(comment: comment)
                             }
