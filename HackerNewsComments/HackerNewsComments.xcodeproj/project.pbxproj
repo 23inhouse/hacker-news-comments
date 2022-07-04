@@ -90,7 +90,7 @@
 
 /* Begin PBXFileReference section */
 		B544478D286CF4E60026E288 /* Color+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Background.swift"; sourceTree = "<group>"; };
-		B5474F2B2860AD720029F031 /* HackerNewsComments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewsComments.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5474F2B2860AD720029F031 /* HN Comments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HN Comments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5474F2E2860AD720029F031 /* HackerNewsCommentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsCommentsApp.swift; sourceTree = "<group>"; };
 		B5474F302860AD720029F031 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B5474F322860AD740029F031 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 		B5474F2C2860AD720029F031 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B5474F2B2860AD720029F031 /* HackerNewsComments.app */,
+				B5474F2B2860AD720029F031 /* HN Comments.app */,
 				B5474F3B2860AD740029F031 /* HackerNewsCommentsTests.xctest */,
 				B5474F452860AD740029F031 /* HackerNewsCommentsUITests.xctest */,
 			);
@@ -399,7 +399,7 @@
 				B5FE014A2861D5020019423F /* FirebaseStorage */,
 			);
 			productName = HackerNewsComments;
-			productReference = B5474F2B2860AD720029F031 /* HackerNewsComments.app */;
+			productReference = B5474F2B2860AD720029F031 /* HN Comments.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B5474F3A2860AD740029F031 /* HackerNewsCommentsTests */ = {
@@ -741,7 +741,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = inhouse23.HackerNewsComments;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "HN Comments";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -772,7 +772,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = inhouse23.HackerNewsComments;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "HN Comments";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
