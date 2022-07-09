@@ -18,9 +18,18 @@ struct ContentView: View {
             }
             .padding(7)
         } content: {
-            ScrollView {
-                ItemsView(vm: itemsVM)
+            if #available(iOS 15.0, *) {
+                RefreshableScrollView {
+                    ItemsView(vm: itemsVM)
+                } refreshAction: {
+                    itemsVM.requestData()
+                }
+            } else {
+                ScrollView {
+                    ItemsView(vm: itemsVM)
+                }
             }
+
         }
         .onAppear(perform: requestData)
     }

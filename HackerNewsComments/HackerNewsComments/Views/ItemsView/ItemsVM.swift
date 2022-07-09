@@ -22,7 +22,7 @@ class ItemsVM: ObservableObject {
     private lazy var firebaseRequest = FirebaseAPI(self)
 
     func requestData() {
-        DispatchQueue.main.async {
+        DispatchQueue.global(qos: .userInitiated).async {
             self.firebaseRequest.call()
         }
     }

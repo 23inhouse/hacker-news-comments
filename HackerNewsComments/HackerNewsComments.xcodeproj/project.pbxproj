@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B51ACC602879AD9C0038E164 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51ACC5F2879AD9C0038E164 /* RefreshableScrollView.swift */; };
 		B544478E286CF4E60026E288 /* Color+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544478D286CF4E60026E288 /* Color+Background.swift */; };
 		B5474F2F2860AD720029F031 /* HackerNewsCommentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F2E2860AD720029F031 /* HackerNewsCommentsApp.swift */; };
 		B5474F312860AD720029F031 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474F302860AD720029F031 /* ContentView.swift */; };
@@ -40,6 +41,7 @@
 		B55156FA286332B0004FA63B /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55156F8286332B0004FA63B /* ItemView.swift */; };
 		B55156FC286332CB004FA63B /* String+Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55156FB286332CB004FA63B /* String+Host.swift */; };
 		B557E5DD287352A1000E773D /* AttributedTextOldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E5DC287352A1000E773D /* AttributedTextOldView.swift */; };
+		B5A80659287C554900A480B0 /* CGFloat+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A80658287C554900A480B0 /* CGFloat+Rounded.swift */; };
 		B5C64DB72869D6DF004B2727 /* HTML2AttributedStringParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C64DB62869D6DF004B2727 /* HTML2AttributedStringParser.swift */; };
 		B5C64DB9286B342E004B2727 /* Int+Of.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C64DB8286B342E004B2727 /* Int+Of.swift */; };
 		B5DCC4DF2864996300DC3F08 /* View+LoadingPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCC4DE2864996300DC3F08 /* View+LoadingPlaceHolder.swift */; };
@@ -89,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B51ACC5F2879AD9C0038E164 /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
 		B544478D286CF4E60026E288 /* Color+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Background.swift"; sourceTree = "<group>"; };
 		B5474F2B2860AD720029F031 /* HN Comments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HN Comments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5474F2E2860AD720029F031 /* HackerNewsCommentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsCommentsApp.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		B55156F8286332B0004FA63B /* ItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		B55156FB286332CB004FA63B /* String+Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Host.swift"; sourceTree = "<group>"; };
 		B557E5DC287352A1000E773D /* AttributedTextOldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedTextOldView.swift; sourceTree = "<group>"; };
+		B5A80658287C554900A480B0 /* CGFloat+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Rounded.swift"; sourceTree = "<group>"; };
 		B5C64DB62869D6DF004B2727 /* HTML2AttributedStringParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTML2AttributedStringParser.swift; sourceTree = "<group>"; };
 		B5C64DB8286B342E004B2727 /* Int+Of.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Of.swift"; sourceTree = "<group>"; };
 		B5DCC4DE2864996300DC3F08 /* View+LoadingPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+LoadingPlaceHolder.swift"; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				B5474F602860B6F20029F031 /* NavigationCustomTitleView.swift */,
 				B5474F5A2860AFB10029F031 /* NavigationTitlelessView.swift */,
 				B5474F652860BE0E0029F031 /* NavigationBackButton.swift */,
+				B51ACC5F2879AD9C0038E164 /* RefreshableScrollView.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 		B5474F622860BCF20029F031 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B5A80658287C554900A480B0 /* CGFloat+Rounded.swift */,
 				B544478D286CF4E60026E288 /* Color+Background.swift */,
 				B5C64DB8286B342E004B2727 /* Int+Of.swift */,
 				B55156FB286332CB004FA63B /* String+Host.swift */,
@@ -542,6 +548,7 @@
 				B5474F8E2860CC8D0029F031 /* ItemsVM.swift in Sources */,
 				B5DCC4E62864F4FE00DC3F08 /* CommentView.swift in Sources */,
 				B5474F612860B6F20029F031 /* NavigationCustomTitleView.swift in Sources */,
+				B5A80659287C554900A480B0 /* CGFloat+Rounded.swift in Sources */,
 				B55156FC286332CB004FA63B /* String+Host.swift in Sources */,
 				B5474F8B2860CC8D0029F031 /* HackerNewsItem.swift in Sources */,
 				B5DCC4DF2864996300DC3F08 /* View+LoadingPlaceHolder.swift in Sources */,
@@ -549,6 +556,7 @@
 				B5FE01602861E14C0019423F /* HackerNewsCommentToggler.swift in Sources */,
 				B5DCC4E42864F01500DC3F08 /* CommentsVM.swift in Sources */,
 				B5474F892860CC8D0029F031 /* HackerNewsFilter.swift in Sources */,
+				B51ACC602879AD9C0038E164 /* RefreshableScrollView.swift in Sources */,
 				B5FE01402861D3C70019423F /* HackerNewsComment.swift in Sources */,
 				B5474F5F2860B5360029F031 /* CommentsView.swift in Sources */,
 				B5474F2F2860AD720029F031 /* HackerNewsCommentsApp.swift in Sources */,
