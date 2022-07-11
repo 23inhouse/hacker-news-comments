@@ -32,8 +32,8 @@ class FirebaseAPI: Firebasable {
 
             for id in ids {
                 self.queryable.itemQuery(id) { snap in
-                    guard let newsItem = HackerNewsItem(data: snap!) else { return }
                     let index = ids.firstIndex(of: id)!
+                    let newsItem = HackerNewsItem(data: snap!) ?? .Error
                     self.requestable.setData(at: index, with: newsItem)
                 }
             }

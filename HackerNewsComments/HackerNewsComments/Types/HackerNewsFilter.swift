@@ -20,8 +20,12 @@ struct HackerNewsFilter {
         self.filterable = filterable
     }
 
+    private var validNewsItems: [HackerNewsItem] {
+        filterable.newsItems.filter(\.isValid)
+    }
+
     func filteredItems() -> [HackerNewsItem] {
-        let newsItems = filterable.newsItems
+        let newsItems = validNewsItems
         let newsItemFilter = filterable.newsItemFilter
 
         guard newsItemFilter.count > 0 else { return newsItems }

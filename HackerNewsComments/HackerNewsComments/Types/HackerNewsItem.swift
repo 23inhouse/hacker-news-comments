@@ -12,6 +12,7 @@ import SwiftUI
 struct HackerNewsItem {
     static var identiferFactory = 0
     static var Empty: HackerNewsItem { HackerNewsItem(title: "No title available for items that are empty. This is a placeholder title. It is intentionally not blank.", commentCount: 0) }
+    static var Error: HackerNewsItem { HackerNewsItem(id: .max * -1 ,title: "Error", commentCount: 0) }
 
     let id: Int
     let url: String
@@ -56,9 +57,20 @@ struct HackerNewsItem {
         self.commentCount = commentCount
     }
 
-    var isEmpty: Bool { id < 0 }
+    var isEmpty: Bool { id < 0 && isValid }
+    var isValid: Bool { id != HackerNewsItem.Error.id }
 }
 
 extension HackerNewsItem: Datable {}
 
 extension HackerNewsItem: Identifiable {}
+
+extension HackerNewsItem: Equatable {
+    static func ==(lhs: HackerNewsItem, rhs: HackerNewsItem) -> Bool {
+        return lhs.id == rhs.id
+        && lhs.url == rhs.url
+        && lhs.title == rhs.title
+        && lhs.author == rhs.author
+        && lhs.commentCount == rhs.commentCount
+    }
+}
