@@ -14,7 +14,6 @@ class ItemsVM: ObservableObject {
 
     var newsItemFilter: String = "" {
         didSet {
-            print("didSet newsItemFilter:", newsItemFilter)
             filteredNewsItems = HackerNewsFilter(self).filteredItems()
         }
     }

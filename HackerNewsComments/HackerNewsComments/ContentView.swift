@@ -14,7 +14,6 @@ struct ContentView: View {
         NavigationCustomTitleView {
             SearchBarView() { text in
                 itemsVM.newsItemFilter = text
-                print("onCommit: \(text)")
             }
             .padding(7)
         } content: {
