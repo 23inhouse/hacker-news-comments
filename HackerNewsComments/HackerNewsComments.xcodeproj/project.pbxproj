@@ -44,6 +44,7 @@
 		B5A80659287C554900A480B0 /* CGFloat+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A80658287C554900A480B0 /* CGFloat+Rounded.swift */; };
 		B5C64DB72869D6DF004B2727 /* HTML2AttributedStringParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C64DB62869D6DF004B2727 /* HTML2AttributedStringParser.swift */; };
 		B5C64DB9286B342E004B2727 /* Int+Of.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C64DB8286B342E004B2727 /* Int+Of.swift */; };
+		B5D549BE287EF12A007575D6 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D549BD287EF12A007575D6 /* WebView.swift */; };
 		B5DCC4DF2864996300DC3F08 /* View+LoadingPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCC4DE2864996300DC3F08 /* View+LoadingPlaceHolder.swift */; };
 		B5DCC4E42864F01500DC3F08 /* CommentsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCC4E32864F01500DC3F08 /* CommentsVM.swift */; };
 		B5DCC4E62864F4FE00DC3F08 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCC4E52864F4FE00DC3F08 /* CommentView.swift */; };
@@ -130,6 +131,7 @@
 		B5A80658287C554900A480B0 /* CGFloat+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Rounded.swift"; sourceTree = "<group>"; };
 		B5C64DB62869D6DF004B2727 /* HTML2AttributedStringParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTML2AttributedStringParser.swift; sourceTree = "<group>"; };
 		B5C64DB8286B342E004B2727 /* Int+Of.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Of.swift"; sourceTree = "<group>"; };
+		B5D549BD287EF12A007575D6 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		B5DCC4DE2864996300DC3F08 /* View+LoadingPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+LoadingPlaceHolder.swift"; sourceTree = "<group>"; };
 		B5DCC4E32864F01500DC3F08 /* CommentsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVM.swift; sourceTree = "<group>"; };
 		B5DCC4E52864F4FE00DC3F08 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				B5474F5A2860AFB10029F031 /* NavigationTitlelessView.swift */,
 				B5474F652860BE0E0029F031 /* NavigationBackButton.swift */,
 				B51ACC5F2879AD9C0038E164 /* RefreshableScrollView.swift */,
+				B5D549BD287EF12A007575D6 /* WebView.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				B5FE016D2861E2160019423F /* String+html.swift in Sources */,
 				B55156F9286332B0004FA63B /* ItemsView.swift in Sources */,
 				B5474F312860AD720029F031 /* ContentView.swift in Sources */,
+				B5D549BE287EF12A007575D6 /* WebView.swift in Sources */,
 				B544478E286CF4E60026E288 /* Color+Background.swift in Sources */,
 				B5FE01622861E14C0019423F /* HackerNewsCommentIndexConverter.swift in Sources */,
 				B5474F812860CBF00029F031 /* Queryable.swift in Sources */,

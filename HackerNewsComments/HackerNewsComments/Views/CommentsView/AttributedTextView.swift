@@ -13,33 +13,44 @@ struct AttributedTextView: View {
     @State private var paragraphs: [AttributedString] = []
     @State private var isShowingNewsItem: Bool = false
     @State private var newsItemID: Int? = nil
+    @State private var isShowingWebContent: Bool = false
+    @State private var webContentURL: URL? = nil
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 15) {
-            ForEach(paragraphs, id: \.self) { paragraph in
-                ZStack {
-                    NavigationLink("", isActive: $isShowingNewsItem) {
-                        if let id = newsItemID {
-                            let item = HackerNewsItem(id: id, title: "", commentCount: 0)
-                            let commentsVM = CommentsVM(item: item)
-                            CommentsView(commentsVM: commentsVM)
-                        }
-                    }
-
-                    Text(paragraph)
-                        .environment(\.openURL, OpenURLAction { linkURL in
-                            guard let id = itemId(url: linkURL) else { return .systemAction }
-
-                            newsItemID = id
-                            isShowingNewsItem = true
-                            return .discarded
-                        })
+        ZStack {
+            NavigationLink("", isActive: $isShowingNewsItem) {
+                if let id = newsItemID {
+                    let item = HackerNewsItem(id: id, title: "", commentCount: 0)
+                    let commentsVM = CommentsVM(item: item)
+                    CommentsView(commentsVM: commentsVM)
                 }
             }
+            VStack(alignment: .leading, spacing: 15) {
+                ForEach(paragraphs, id: \.self) { paragraph in
+                    Text(paragraph)
+                }
+            }
+            .onAppear {
+                paragraphs = HTML2AttributedStringParser(string: text).texts
+            }
         }
-        .onAppear {
-            paragraphs = HTML2AttributedStringParser(string: text).texts
+        .fullScreenCover(isPresented: $isShowingWebContent) {
+            WebView(url: $webContentURL)
         }
+        .environment(\.openURL, OpenURLAction { linkURL in
+            if let id = itemId(url: linkURL) {
+                webContentURL = nil
+                newsItemID = id
+                isShowingNewsItem = true
+            } else {
+                print(linkURL)
+                newsItemID = nil
+                webContentURL = linkURL
+                isShowingWebContent = true
+            }
+
+            return .discarded
+        })
     }
 
     private func itemId(url: URL?) -> Int? {
