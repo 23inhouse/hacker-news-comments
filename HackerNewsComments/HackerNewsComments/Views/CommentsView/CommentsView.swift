@@ -14,6 +14,11 @@ struct CommentsView: View {
         commentsVM.toggledComments
     }
 
+    var itemURL: URL {
+        let notFoundURL = URL(string: "https://img.freepik.com/vektoren-kostenlos/fehler-seite-404-fehler_23-2148105404.jpg")!
+        return URL(string: commentsVM.item.url) ?? notFoundURL
+    }
+
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 5) {
@@ -29,8 +34,11 @@ struct CommentsView: View {
             Divider()
             ScrollView {
                 VStack(spacing: 0) {
-                    ItemView(vm: ItemVM(commentsVM.item))
-                        .padding(10)
+                    Link(destination: itemURL) {
+                        ItemView(vm: ItemVM(commentsVM.item))
+                            .padding(10)
+                    }
+                    .foregroundColor(.primary)
 
                     ForEach(Array(comments.enumerated()), id: \.element.identifier) { index, comment in
                         VStack(spacing: 0) {
