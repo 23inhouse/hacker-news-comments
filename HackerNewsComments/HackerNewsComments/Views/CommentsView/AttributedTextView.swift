@@ -30,9 +30,9 @@ struct AttributedTextView: View {
                     Text(paragraph)
                 }
             }
-            .onAppear {
-                paragraphs = HTML2AttributedStringParser(string: text).texts
-            }
+        }
+        .onAppear {
+            paragraphs = HTML2AttributedStringParser(string: text).texts
         }
         .fullScreenCover(isPresented: $isShowingWebContent) {
             WebView(url: $webContentURL)
@@ -71,12 +71,12 @@ struct AttributedTextView_Previews: PreviewProvider {
         <p>The kicker:<p>&quot;the reduction function&quot; it won&#x27;t work
         <p>The kicker:<a href="foobar.com">link body</a>
         <p>> here is commented code<p>Here is not a comment
+        <p>content with a > that is not a comment
         <p>content with<p>a new paragraph
         """
 
     static var previews: some View {
         AttributedTextView(text: text)
-            .frame(maxWidth: 300)
             .previewLayout(.sizeThatFits)
             .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
     }

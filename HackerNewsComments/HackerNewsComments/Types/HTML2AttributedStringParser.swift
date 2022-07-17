@@ -13,15 +13,17 @@ class HTML2AttributedStringParser: XMLParser {
     private var isItalic: Bool  = false
     private var isLink: Bool  = false
     private var linkUrl: String? = nil
-    private var isNewParagraph: Bool = false
+    private var isNewParagraph: Bool = true
     private var isComment: Bool = false
 
-    var texts: [AttributedString] = [""]
+    var texts: [AttributedString] = []
 
     init(string: String) {
-        let parsableString = "<p>\(string.replacingOccurrences(of: "<p>", with: "</p><p>"))</p>"
-        let markedUpString = HTML2AttributedStringParser.replaceLinks(in: parsableString)
-        let data = Data("<XML>\(markedUpString)</XML>".utf8)
+        var markedUpString: String = string
+        markedUpString = HTML2AttributedStringParser.replaceLinks(in: markedUpString)
+        markedUpString = HTML2AttributedStringParser.replaceNewLines(in: markedUpString)
+        let parsableString = "<p>\(markedUpString.replacingOccurrences(of: "<p>", with: "</p><p>"))</p>"
+        let data = Data("<XML>\(parsableString)</XML>".utf8)
 
         super.init(data: data)
 
@@ -36,9 +38,11 @@ class HTML2AttributedStringParser: XMLParser {
     }
 
     private func addChunkOfText(string: String) {
+        let (string, isLeadingWhiteSpaceTrimmed, isTrailingWhiteSpaceTrimmed) = replaceWhiteSpace(in: string)
+
         guard string != "" else { return }
 
-        if string.first == ">" {
+        if isNewParagraph && string.first == ">" {
             isComment = true
         }
 
@@ -47,31 +51,74 @@ class HTML2AttributedStringParser: XMLParser {
             isNewParagraph = false
         }
 
-
         var text: AttributedString
         if isBold {
-            let markdomn = "**\(string)**"
-            let attributedString = try? AttributedString(markdown: markdomn)
+            let markdown = "**\(string)**"
+            let attributedString = try? AttributedString(markdown: markdown)
             text = attributedString ?? AttributedString(string)
         } else if isItalic {
-            let markdomn = "_\(string)_"
-            let attributedString = try? AttributedString(markdown: markdomn)
+            let markdown = "_\(string)_"
+            let attributedString = try? AttributedString(markdown: markdown)
             text = attributedString ?? AttributedString(string)
+            if let range = text.range(of: string) {
+                text[range].foregroundColor = .secondary
+            }
         } else if isLink {
             text = AttributedString(string)
             if let linkUrl = linkUrl {
                 text.link = URL(string: linkUrl)
             }
         } else if isComment {
-            text = AttributedString(string)
-            let range = text.range(of: string)!
-            text[range].foregroundColor = .secondary
+            if string != " " {
+                let markdown = "_\(string)_"
+                let attributedString = try? AttributedString(markdown: markdown)
+                text = attributedString ?? AttributedString(string)
+            } else {
+                text = AttributedString(string)
+            }
+            if let range = text.range(of: string) {
+                text[range].foregroundColor = .secondary
+            }
         } else {
             text = AttributedString(string)
         }
 
         let index = texts.count - 1
-        texts[index].append(text)
+        let paddedText = paddedText(text: text, isLeadingWhiteSpaceTrimmed, isTrailingWhiteSpaceTrimmed)
+        texts[index].append(paddedText)
+    }
+
+    private func replaceWhiteSpace(in string: String) -> (String, Bool, Bool) {
+        var isLeadingWhiteSpaceTrimmed: Bool = false
+        var isTrailingWhiteSpaceTrimmed: Bool = false
+
+        var originalString = string
+        var string = string
+
+        string = string.trimLeadingWhitespaces()
+        if string.count < originalString.count {
+            isLeadingWhiteSpaceTrimmed = true
+        }
+        originalString = string
+        string = string.trimTrailingWhitespaces()
+        if string.count < originalString.count {
+            isTrailingWhiteSpaceTrimmed = true
+        }
+
+        return (string, isLeadingWhiteSpaceTrimmed, isTrailingWhiteSpaceTrimmed)
+    }
+
+    private func paddedText(text: AttributedString, _ isLeadingWhiteSpaceTrimmed: Bool, _ isTrailingWhiteSpaceTrimmed: Bool) -> AttributedString {
+        var paddedText = AttributedString("")
+        if isLeadingWhiteSpaceTrimmed {
+            paddedText = AttributedString(" ")
+        }
+        paddedText = paddedText + text
+        if isTrailingWhiteSpaceTrimmed {
+            paddedText = paddedText + AttributedString(" ")
+        }
+
+        return paddedText
     }
 }
 
@@ -81,6 +128,15 @@ private extension HTML2AttributedStringParser {
         let regex = "([^\"])(https?://[^<>\"\\s]+)"
         let replacement = "$1<a href=\"$2\">$2</a>"
         return string.replacingOccurrences(of: regex, with: replacement, options: [.regularExpression])
+    }
+
+    static func replaceNewLines(in string: String) -> String {
+        let regexDouble = "([^\n])\n\n([^\n])"
+        let replacementDouble = "$1<p>$2"
+        let stringWithNewLinesAdded = string.replacingOccurrences(of: regexDouble, with: replacementDouble, options: [.regularExpression])
+        let regexSingle = "([^\n])\n([^\n])"
+        let replacementSingle = "$1 $2"
+        return stringWithNewLinesAdded.replacingOccurrences(of: regexSingle, with: replacementSingle, options: [.regularExpression])
     }
 }
 
@@ -117,10 +173,10 @@ extension HTML2AttributedStringParser: XMLParserDelegate {
 struct HTML2AttributedStringParser_Previews: PreviewProvider {
     static let inputTexts = [
         """
-        <b>Some bold text</b>
+        Some <b>bold </b>text
         """,
         """
-        <i>Some italic text</i>
+        Some<i> italic</i> text
         """,
         """
         The kicker:<p>&quot;the reduction function&quot; it won&#x27;t work
@@ -129,13 +185,25 @@ struct HTML2AttributedStringParser_Previews: PreviewProvider {
         The kicker: <a href="http://foobar.com">link body</a>
         """,
         """
+        The first part of some text\n\nwith a double newline and a single\nneweline
+        """,
+        """
         > here is commented code<p>Here is not a comment
+        """,
+        """
+        ><i>here is italic and commented code</i><p>Here is not a comment
+        """,
+        """
+        content with a > that is not a comment
         """,
         """
         content with<p>a new paragraph
         """,
         """
         some content with a https://foo.bar/baz
+        """,
+        """
+        content with invalid characters ` removed
         """
     ]
 

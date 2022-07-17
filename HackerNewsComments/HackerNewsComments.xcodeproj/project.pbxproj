@@ -41,6 +41,7 @@
 		B55156FA286332B0004FA63B /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55156F8286332B0004FA63B /* ItemView.swift */; };
 		B55156FC286332CB004FA63B /* String+Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55156FB286332CB004FA63B /* String+Host.swift */; };
 		B557E5DD287352A1000E773D /* AttributedTextOldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E5DC287352A1000E773D /* AttributedTextOldView.swift */; };
+		B59F8C1228844073008ED76C /* String+TrimWhiteSpaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59F8C1128844073008ED76C /* String+TrimWhiteSpaces.swift */; };
 		B5A80659287C554900A480B0 /* CGFloat+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A80658287C554900A480B0 /* CGFloat+Rounded.swift */; };
 		B5C64DB72869D6DF004B2727 /* HTML2AttributedStringParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C64DB62869D6DF004B2727 /* HTML2AttributedStringParser.swift */; };
 		B5C64DB9286B342E004B2727 /* Int+Of.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C64DB8286B342E004B2727 /* Int+Of.swift */; };
@@ -128,6 +129,7 @@
 		B55156F8286332B0004FA63B /* ItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		B55156FB286332CB004FA63B /* String+Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Host.swift"; sourceTree = "<group>"; };
 		B557E5DC287352A1000E773D /* AttributedTextOldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedTextOldView.swift; sourceTree = "<group>"; };
+		B59F8C1128844073008ED76C /* String+TrimWhiteSpaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TrimWhiteSpaces.swift"; sourceTree = "<group>"; };
 		B5A80658287C554900A480B0 /* CGFloat+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Rounded.swift"; sourceTree = "<group>"; };
 		B5C64DB62869D6DF004B2727 /* HTML2AttributedStringParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTML2AttributedStringParser.swift; sourceTree = "<group>"; };
 		B5C64DB8286B342E004B2727 /* Int+Of.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Of.swift"; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				B5C64DB8286B342E004B2727 /* Int+Of.swift */,
 				B55156FB286332CB004FA63B /* String+Host.swift */,
 				B5FE016C2861E2150019423F /* String+html.swift */,
+				B59F8C1128844073008ED76C /* String+TrimWhiteSpaces.swift */,
 				B5474F6B2860C5700029F031 /* UIApplication+EndEditing.swift */,
 				B5474F632860BD190029F031 /* UINavigationController+UIGestureRecognizerDelegate.swift */,
 				B5DCC4DE2864996300DC3F08 /* View+LoadingPlaceHolder.swift */,
@@ -536,6 +539,7 @@
 				B5D549BE287EF12A007575D6 /* WebView.swift in Sources */,
 				B544478E286CF4E60026E288 /* Color+Background.swift in Sources */,
 				B5FE01622861E14C0019423F /* HackerNewsCommentIndexConverter.swift in Sources */,
+				B59F8C1228844073008ED76C /* String+TrimWhiteSpaces.swift in Sources */,
 				B5474F812860CBF00029F031 /* Queryable.swift in Sources */,
 				B5474F6C2860C5700029F031 /* UIApplication+EndEditing.swift in Sources */,
 				B5474F682860BFC40029F031 /* SearchBarView.swift in Sources */,
