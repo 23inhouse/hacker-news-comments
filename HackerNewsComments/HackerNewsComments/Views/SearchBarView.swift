@@ -23,9 +23,11 @@ struct SearchBarView: View {
                 Group {
                     if #available(iOS 15.0, *) {
                         textFieldView
+                            .disableAutocorrection(true)
                             .submitLabel(.search)
                     } else {
                         textFieldView
+                            .disableAutocorrection(true)
                     }
                 }
                 .foregroundColor(.primary)
